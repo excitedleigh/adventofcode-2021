@@ -1,37 +1,11 @@
-use itertools::Itertools;
-use std::io;
-use std::io::BufRead;
+use std::env::args;
+
+mod day1;
 
 fn main() {
-    day1a();
-}
-
-fn day1() {
-    let stdin = io::stdin();
-    {
-        let handle = stdin.lock();
-        let count = handle
-            .lines()
-            .map(|x| x.unwrap().parse::<i32>().unwrap())
-            .tuple_windows()
-            .filter(|(a, b)| a < b)
-            .count();
-        println!("count: {}", count);
-    }
-}
-
-fn day1a() {
-    let stdin = io::stdin();
-    {
-        let handle = stdin.lock();
-        let count = handle
-            .lines()
-            .map(|x| x.unwrap().parse::<i32>().unwrap())
-            .tuple_windows()
-            .map(|(a, b, c)| a + b + c)
-            .tuple_windows()
-            .filter(|(a, b)| a < b)
-            .count();
-        println!("count: {}", count);
+    match &args().nth(1).unwrap()[..] {
+        "1" => day1::day1(),
+        "1a" => day1::day1a(),
+        _ => panic!("that day hasn't been added yet"),
     }
 }
