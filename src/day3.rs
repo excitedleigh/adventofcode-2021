@@ -46,8 +46,6 @@ struct Candidate {
 pub(crate) fn day3a() {
     /*
     Different tack for this one, converting the values to numbers early and using bitwise ops instead of string manipulation.
-
-    This does not work.
     */
     let stdin = io::stdin();
     let mut line_list: Vec<_> = {
@@ -61,7 +59,7 @@ pub(crate) fn day3a() {
             })
             .collect()
     };
-    for n in (0..11).rev() {
+    for n in (0..12).rev() {
         let bit_mask = 1 << n;
         let o2_most_commonly_set = is_most_commonly_set(
             line_list
@@ -79,7 +77,7 @@ pub(crate) fn day3a() {
                 }
             });
     }
-    for n in (0..11).rev() {
+    for n in (0..12).rev() {
         let bit_mask = 1 << n;
         let co2_most_commonly_set = is_most_commonly_set(
             line_list
@@ -88,6 +86,7 @@ pub(crate) fn day3a() {
                 .map(|x| x.val),
             bit_mask,
         );
+        println!("for bit {}, most_commonly_set={}", n, co2_most_commonly_set);
         line_list
             .iter_mut()
             .filter(|x| x.is_co2_candidate)
@@ -101,10 +100,9 @@ pub(crate) fn day3a() {
             break;
         }
     }
-    println!("{:?}", line_list);
     let o2 = only(line_list.iter().filter(|x| x.is_o2_candidate)).val;
     let co2 = only(line_list.iter().filter(|x| x.is_co2_candidate)).val;
-    println!("o2={}, co2={}, product={}", o2, co2, o2 * co2);
+    println!("o2={:b}, co2={:b}, product={}", o2, co2, o2 * co2);
 }
 
 fn is_most_commonly_set<V: Iterator<Item = u32>>(values: V, bit_mask: u32) -> bool {
