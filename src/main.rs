@@ -14,6 +14,7 @@ fn main() {
         "3" => day3::day3(),
         "3a" => day3::day3a(),
         "5" => day5::day5(),
+        "5a" => day5::day5a(),
         _ => panic!("that day hasn't been added yet"),
     }
 }
