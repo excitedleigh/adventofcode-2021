@@ -3,6 +3,7 @@ use std::env::args;
 mod day1;
 mod day2;
 mod day3;
+mod day5;
 
 fn main() {
     match &args().nth(1).unwrap()[..] {
@@ -12,6 +13,7 @@ fn main() {
         "2a" => day2::day2a(),
         "3" => day3::day3(),
         "3a" => day3::day3a(),
+        "5" => day5::day5(),
         _ => panic!("that day hasn't been added yet"),
     }
 }
