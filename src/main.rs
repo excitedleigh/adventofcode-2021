@@ -6,6 +6,7 @@ mod day3;
 mod day4;
 mod day5;
 mod day6;
+mod day7;
 
 fn main() {
     match &args().nth(1).unwrap()[..] {
@@ -19,6 +20,8 @@ fn main() {
         "5" => day5::day5(),
         "5a" => day5::day5a(),
         "6" => day6::day6(),
+        "7" => day7::day7(),
+        "7a" => day7::day7a(),
         _ => panic!("that day hasn't been added yet"),
     }
 }
