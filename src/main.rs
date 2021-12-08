@@ -1,4 +1,4 @@
-use std::env::args;
+use std::{env::args, error::Error};
 
 mod day1;
 mod day2;
@@ -7,8 +7,9 @@ mod day4;
 mod day5;
 mod day6;
 mod day7;
+mod day8;
 
-fn main() {
+fn main() -> Result<(), Box<dyn Error>> {
     match &args().nth(1).unwrap()[..] {
         "1" => day1::day1(),
         "1a" => day1::day1a(),
@@ -22,6 +23,8 @@ fn main() {
         "6" => day6::day6(),
         "7" => day7::day7(),
         "7a" => day7::day7a(),
+        "8" => day8::day8(),
         _ => panic!("that day hasn't been added yet"),
     }
+    Ok(())
 }
