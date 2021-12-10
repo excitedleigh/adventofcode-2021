@@ -8,6 +8,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 fn main() -> Result<(), Box<dyn Error>> {
     match &args().nth(1).unwrap()[..] {
@@ -25,6 +26,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         "7a" => day7::day7a(),
         "8" => day8::day8(),
         "8p2" => day8::day8p2(),
+        "9" => day9::day9(),
+        "9p2" => day9::day9p2(),
         _ => panic!("that day hasn't been added yet"),
     }
     Ok(())
