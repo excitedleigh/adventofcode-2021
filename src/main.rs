@@ -24,6 +24,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         "7" => day7::day7(),
         "7a" => day7::day7a(),
         "8" => day8::day8(),
+        "8p2" => day8::day8p2(),
         _ => panic!("that day hasn't been added yet"),
     }
     Ok(())
