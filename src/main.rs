@@ -1,6 +1,7 @@
 use std::{env::args, error::Error};
 
 mod day1;
+mod day10;
 mod day2;
 mod day3;
 mod day4;
@@ -28,6 +29,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         "8p2" => day8::day8p2(),
         "9" => day9::day9(),
         "9p2" => day9::day9p2(),
+        "10" => day10::day10(),
+        "10p2" => day10::day10p2(),
         _ => panic!("that day hasn't been added yet"),
     }
     Ok(())
